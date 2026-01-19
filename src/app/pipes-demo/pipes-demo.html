@@ -1,0 +1,82 @@
+<!-- (date pipe) -->
+<div>
+    Today's date :- {{ presentDate }}
+</div>
+
+
+<!--(Parameters)-->
+
+<div>
+    This is a short date :- {{presentDate | date:'shortDate'}}<br/>
+    This line show the full date :- {{presentDate | date:'fullDate'}}<br/>
+    This will show a formatted date :- {{presentDate | date:'M/dd/yyyy'}}<br/>
+    This indicates the hours and minutes :- {{presentDate | date:'h:mm'}}
+    {{name | uppercase}}
+</div>
+
+<div>
+    Date with uppercase :- {{presentDate | date: 'fullDate' | uppercase}}<br/>
+    Date with lowercase :- {{presentDate | date: 'medium' | lowercase}}<br/>
+</div>
+
+<div>
+    <div>
+  <h3>Currency Pipe</h3>
+  <!-- format: $20,000.00 -->
+  <p>{{ price | currency:'':true}}</p>
+  <!-- format: ₹20,000.00 -->
+  <p>{{ price | currency:'INR'}}</p>
+  <!-- format: $20,000 -->
+  <p>{{ price | currency:'USD':'symbol':'1.0-0'}}</p>
+  <!-- format: EUR20,000.00 -->
+  <p>{{ price | currency:'EUR':'code':'2.2-4'}}</p>
+</div>
+
+<div>
+  <!-- format: Start index:- Grapes,Mango,Kiwi,Pomegranate -->
+  <h3>Start index:- {{Fruits | slice:2}}</h3>
+  <!-- format: Start and end index:- Orange,Grapes,Mango -->
+  <h4>Start and end index:- {{Fruits | slice:1:4}}</h4>
+  <!-- format: Negative index:- Kiwi,Pomegranate -->
+  <h5>Negative index:- {{Fruits | slice:-2}}</h5>
+  <!-- format: Negative start and end index:- Grapes,Mango -->
+  <h6>Negative start and end index:- {{Fruits | slice:-4:-2}}</h6>
+</div>
+
+<div style="text-align:center">
+  <!-- format: Apply formatting:- 008.759 -->
+  <p> Apply formatting:- {{decimalNuml | number: '3.1'}} </p>
+  <!-- format: Apply formatting:- 008.759 -->
+  <p> Apply formatting:- {{decimalNuml | number:'2.1-4'}} </p>
+</div>
+
+<div>
+  <h3>Percent Pipe</h3>
+  <!-- format: Number 1: 20% -->
+  <p>Number 1: {{ percentNum1 | percent }}</p>
+  <!-- format: Number 1: 20% -->
+  <p>Number 1: {{ percentNum1 | percent: '1.0-0' }}</p>
+  <!-- format: Number 2: 20.26% -->
+  <p>Number 1: {{ percentNum1 | percent: '1.2-2' }}</p>
+</div>
+
+<div>
+  <h3>JSON Pipe</h3>
+  <pre>{{ object | json }}</pre>
+</div>
+
+<div>
+  <h3>Title Pipe</h3>
+  <!-- format: Hoyo -->
+  <p>{{ 'candy' | titlecase }}</p>
+  <!-- format: Genshin -->
+  <p>{{ 'sky' | titlecase }}</p>
+  <!-- format: Genshin -->
+  <p>{{ "element" | titlecase }}</p>
+  <!-- format: Fire,lightning,ice -->
+</div>
+
+<div>
+  <h3>Async Pipes</h3>
+   Seconds changing in Time: {{ time$ | async | date:'mediumTime' }}
+</div>
